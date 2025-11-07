@@ -5,13 +5,13 @@ import db from "../config/db.js"
 
 export async function criarUsuario(req, res) {
     try {
-        const { nome, email, senha } = req.body;
-        if (!nome || !email || !senha)
+        const { nome, email, senha, perfil } = req.body;
+        if (!nome || !email || !senha || !perfil)
             return res.status(400).json({ erro: "Campos obrigatórios" });
 
         await db.execute(
-            "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)",
-            [nome, email, senha]
+            "INSERT INTO usuarios (nome, email, senha, perfil) VALUES (?, ?, ?)",
+            [nome, email, senha, perfil]
         );
 
         res.json({ mensagem: "Usuário criado com sucesso!" });
@@ -44,10 +44,10 @@ export async function obterUsuario(req, res) {
 
 export async function atualizarUsuario(req, res) {
     try {
-        const { nome, email, senha } = req.body;
+        const { nome, email, senha, perfil } = req.body;
         await db.execute(
             "UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id = ?",
-            [nome, email, senha, req.params.id]
+            [nome, email, senha, perfil, req.params.id]
         );
         res.json({ mensagem: "Usuário atualizado com sucesso!" });
     } catch (err) {

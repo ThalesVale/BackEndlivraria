@@ -3,10 +3,9 @@ import express from "express"
 
 
 const route = express.Router();
-
+route.post("/", criarUsuario);
 route.get("/", listarUsuarios);
 route.get("/:id", obterUsuario);
-route.post("/", criarUsuario);
 route.put("/:id", atualizarUsuario);
 route.delete("/:id", deletarUsuario);
 
