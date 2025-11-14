@@ -1,4 +1,4 @@
-import { criarAvaliacoes, listarAvaliacoes, obterAvaliacao, atualizarAvaliacao, deletarAvaliacao } from "../controllers/avaliacoes.controller.js"
+import { criarAvaliacoes, listarAvaliacoes, obterAvaliacao, atualizarAvaliacao, deletarAvaliacao, listarAvaliacoesLivrosDetalhado } from "../controllers/avaliacoes.controller.js"
 import express from "express"
 
 
@@ -8,6 +8,7 @@ route.get("/", listarAvaliacoes);
 route.get("/:id", obterAvaliacao);
 route.put("/:id", atualizarAvaliacao);
 route.delete("/:id", deletarAvaliacao);
+route.get('/avaliacoes', listarAvaliacoesLivrosDetalhado);
 
 
 export default route

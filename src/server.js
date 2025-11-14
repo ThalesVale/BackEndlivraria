@@ -7,8 +7,7 @@ import cors from "cors";
 import usuarioRoutes from "./routes/usuarios.routes.js"
 import livrosRoutes from "./routes/livraria.routes.js"
 import avaliacoesRoutes from "./routes/avaliacoes.routes.js"
-import reservasRoutes from "./routes/reservas.routes.js"
-import favoritosRoutes from "./routes/favoritos.routes.js"
+
 // ============================
 //  Configuração do servidor
 // ============================
@@ -20,8 +19,7 @@ app.use(bodyParser.json());
 app.use("/usuarios", usuarioRoutes)
 app.use("/livros", livrosRoutes)
 app.use("/avaliacoes", avaliacoesRoutes)
-app.use("/reservas", reservasRoutes)
-app.use("/favoritos", favoritosRoutes)
+
 
 
 // ============================
